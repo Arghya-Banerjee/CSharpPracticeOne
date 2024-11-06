@@ -31,6 +31,7 @@ namespace PracticeOne.Controllers
             obj.firstname = "Arghya";
             obj.surname = "Banerjee";
             obj.phonenumber = "9433458371";
+            obj.opmode = 0;
             users = DBOperations<UserModel>.GetAllOrByRange(obj, Constant.usp_GetAllData);
             return View(users);
         }

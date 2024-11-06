@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Show Data";
+}
+
+@model List<UserModel>
+
+<h1 class="display-2" >Person Details Page</h1>
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                First Name
+            </th>
+            <th>
+                Surname
+            </th>
+            <th>
+                Phone Number
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var user in Model)
+            {
+                <tr>
+                    <td>
+                        @user.firstname
+                    </td>
+                    <td>
+                        @user.surname
+                    </td>
+                    <td>
+                        @user.phonenumber
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

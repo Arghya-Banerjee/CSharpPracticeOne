@@ -24,17 +24,14 @@ namespace PracticeOne.Controllers
         {
             return View();
         }
-        
-        public IActionResult AddData([FromBody] UserModel model)
-        {
-            UserModel obj = new UserModel();
-            obj.firstname = model.firstname;
-            obj.surname = model.surname;
-            obj.phonenumber = model.phonenumber;
-            obj.opmode = 1;
+
+        [HttpPost]
+        public IActionResult AddData(UserModel model)
+        { 
+            model.opmode = 1;
             int result = default(int);
             string msg = "";
-            result = DBOperations<UserModel>.DMLOperation(obj, Constant.usp_GetAllData);
+            result = DBOperations<UserModel>.DMLOperation(model, Constant.usp_GetAllData);
             if (result > 0)
             {
                 msg = "Successfully Inserted Data";

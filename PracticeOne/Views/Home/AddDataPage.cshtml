@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Add Data";
+}
+
+@model PracticeOne.Models.UserModel
+
+<div class="text-center">
+    <h1 class="display-4">Add new data to Database here</h1>
+</div>
+
+<form asp-controller="Home" asp-action="AddData">
+    <label>First Name: </label>
+    <input class="form-control" type="text" placeholder="0" asp-for="firstname" />
+    <lable class="mt-4">Surname: </lable>
+    <input class="form-control" type="text" placeholder="0" asp-for="surname" />
+    <label class="mt-4">Phone Number: </label>
+    <input class="form-control" type="text" placeholder="0" asp-for="phonenumber" />
+
+    <button class="btn btn-primary mt-4" type="submit">Submit</button>
+</form>

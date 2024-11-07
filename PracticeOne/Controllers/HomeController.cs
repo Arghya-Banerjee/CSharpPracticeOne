@@ -2,6 +2,7 @@ using Core;
 using Microsoft.AspNetCore.Mvc;
 using PracticeOne.Models;
 using System.Diagnostics;
+using System.Reflection;
 
 namespace PracticeOne.Controllers
 {
@@ -19,9 +20,31 @@ namespace PracticeOne.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult AddDataPage()
         {
             return View();
+        }
+        
+        public IActionResult AddData([FromBody] UserModel model)
+        {
+            UserModel obj = new UserModel();
+            obj.firstname = model.firstname;
+            obj.surname = model.surname;
+            obj.phonenumber = model.phonenumber;
+            obj.opmode = 1;
+            int result = default(int);
+            string msg = "";
+            result = DBOperations<UserModel>.DMLOperation(obj, Constant.usp_GetAllData);
+            if (result > 0)
+            {
+                msg = "Successfully Inserted Data";
+            }
+            else
+            {
+                msg = "Error Inserting Data";
+            }
+
+            return RedirectToAction("AddDataPage");
         }
 
         public IActionResult ShowData()

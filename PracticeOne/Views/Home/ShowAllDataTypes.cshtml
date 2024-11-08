@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Show All Data Types";
+}
+
+@model List<AllDataModel>
+
+<h1 class="display-2">User Details Page</h1>
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                First Name
+            </th>
+            <th>
+                Family Name
+            </th>
+            <th>
+                Age
+            </th>
+            <th>
+                Date of Birth
+            </th>
+            <th>
+                Gender
+            </th>
+            <th>
+                Course
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var user in Model)
+            {
+                <tr>
+                    <td>
+                        @user.FirstName
+                    </td>
+                    <td>
+                        @user.FamilyName
+                    </td>
+                    <td>
+                        @user.Age
+                    </td>
+                    <td>
+                        @user.DOB
+                    <td>
+                        @user.Gender
+                    </td>
+                    <td>
+                        @user.Course
+                    </td>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

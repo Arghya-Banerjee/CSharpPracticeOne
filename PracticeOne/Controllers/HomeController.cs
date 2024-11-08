@@ -56,6 +56,29 @@ namespace PracticeOne.Controllers
             return View(users);
         }
 
+        public IActionResult GetAllDataTypesView()
+        {
+            return View();
+        }
+
+        public IActionResult GetAllTypesData(AllDataModel model)
+        {
+            model.Opmode = 1;
+
+            int result = DBOperations<AllDataModel>.DMLOperation(model, Constant.usp_GetAllDataTypes);
+
+            return RedirectToAction("GetAllDataTypesView");
+        }
+
+        public IActionResult ShowAllDataTypes()
+        {
+            List<AllDataModel> users = new List<AllDataModel>();
+            AllDataModel obj = new AllDataModel();
+            obj.Opmode = 0;
+            users = DBOperations<AllDataModel>.GetAllOrByRange(obj, Constant.usp_GetAllDataTypes);
+            return View(users);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

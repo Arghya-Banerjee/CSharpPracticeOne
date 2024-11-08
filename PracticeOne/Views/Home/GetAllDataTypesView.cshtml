@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Get All Types Data";
+}
+
+@model PracticeOne.Models.AllDataModel
+
+<p class="display-3">Input all kinds of Data Here</p>
+<form asp-controller="Home" asp-action="GetAllTypesData" method="post">
+    <label>Enter First Name: </label>
+    <input class="form-control" type="text" placeholder="Given Name" asp-for="FirstName" />
+
+    <label>Enter Family Name: </label>
+    <input class="form-control" type="text" placeholder="Family Name" asp-for="FamilyName" />
+
+    <label>Enter Age: </label>
+    <input class="form-control" type="number" placeholder="Age" asp-for="Age" />
+
+    <label>Enter Date of Birth: </label>
+    <input class="form-control" type="date" placeholder="Given Name" asp-for="DOB" />
+
+    <label>Select Gender: </label><br />
+    <input id="male" value="Male" type="radio" asp-for="Gender" />
+    <label>Male</label>
+    <input id="female" value="Female" type="radio" asp-for="Gender" />
+    <label>Female</label><br />
+
+    <label>Select Course: </label>
+    <select class="form-control" asp-for="Course">
+        <option value="DBMS">DBMS</option>
+        <option value="OS">Operating System</option>
+        <option value="OOPS">Object-Oriented Programming (OOPS)</option>
+    </select> <br />
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

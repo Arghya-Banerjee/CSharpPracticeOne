@@ -1,32 +1,32 @@
 ﻿@{
-    ViewData["Title"] = "Show All Data Types";
+    ViewData["Title"] = "Show Person Data";
 }
 
-@model List<AllDataModel>
+@model List<PersonModel>
 
-<h1 class="display-2">User Details Page</h1>
+<h1 class="display-2">Person Details Page</h1>
 <br />
 
 <table class="table">
     <thead>
         <tr>
             <th>
-                First Name
+                ID
             </th>
             <th>
-                Family Name
+                Given Name
             </th>
             <th>
-                Age
+                Given Name
+            </th>
+            <th>
+                Phone Number
             </th>
             <th>
                 Date of Birth
             </th>
             <th>
-                Gender
-            </th>
-            <th>
-                Course
+                Age
             </th>
         </tr>
     </thead>
@@ -36,22 +36,23 @@
             {
                 <tr>
                     <td>
-                        @user.FirstName
+                        @user.ID
+                    </td>
+                    <td>
+                        @user.GivenName
                     </td>
                     <td>
                         @user.FamilyName
                     </td>
                     <td>
+                        @user.PhoneNumber
+                    </td>
+                    <td>
+                        @user.DateOfBirth
+                    </td>
+                    <td>
                         @user.Age
                     </td>
-                    <td>
-                        @user.DOB
-                    <td>
-                        @user.Gender
-                    </td>
-                    <td>
-                        @user.Course
-                    </td>d
                 </tr>
             }
         }

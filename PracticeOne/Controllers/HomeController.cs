@@ -61,10 +61,10 @@ namespace PracticeOne.Controllers
             return View();
         }
 
-        public IActionResult GetAllTypesData(AllDataModel model)
+        public IActionResult GetAllDataTypes(AllDataModel model)
         {
             model.Opmode = 1;
-
+            
             int result = DBOperations<AllDataModel>.DMLOperation(model, Constant.usp_GetAllDataTypes);
 
             return RedirectToAction("GetAllDataTypesView");
